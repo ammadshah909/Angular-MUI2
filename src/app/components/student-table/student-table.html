@@ -1,0 +1,138 @@
+
+<section class="records-page">
+
+  <div class="records-hero">
+    <div class="records-hero-content">
+      <span class="hero-tag">✦ TASKMASTER DASHBOARD</span>
+      <h1>Our Student <span>Community.</span></h1>
+      <p>
+        Explore student information, view academic details
+        and keep your institution's records organized.
+      </p>
+
+      <div class="hero-mini-stats">
+        <div>
+          <strong>{{ students.length }}</strong>
+          <span>Registered Students</span>
+        </div>
+        <div>
+          <strong>100%</strong>
+          <span>Organized Records</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="records-hero-image">
+      <img
+        src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=1000"
+        alt="Students studying together"
+      />
+    </div>
+  </div>
+
+  <div class="stats-grid">
+
+    <div class="record-stat">
+      <div class="stat-icon purple">♟</div>
+      <div>
+        <span>Total Students</span>
+        <h2>{{ students.length }}</h2>
+        <p>All registered students</p>
+      </div>
+    </div>
+
+    <div class="record-stat">
+      <div class="stat-icon orange">✦</div>
+      <div>
+        <span>Student Management</span>
+        <h2>Active</h2>
+        <p>Records are ready to view</p>
+      </div>
+    </div>
+
+    <div class="record-stat">
+      <div class="stat-icon blue">▤</div>
+      <div>
+        <span>Information Fields</span>
+        <h2>04</h2>
+        <p>Name, age, course and contact</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="table-section">
+
+    <div class="table-heading">
+      <div>
+        <span class="section-tag">STUDENT DATABASE</span>
+        <h2>Students Records</h2>
+        <p>All student information in one place.</p>
+      </div>
+
+      <div class="total-badge">
+        Total Students: {{ students.length }}
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+
+      <table mat-table [dataSource]="students" class="student-table">
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Student Name</th>
+          <td mat-cell *matCellDef="let std">
+            <div class="student-name">
+              <div class="student-avatar">
+                {{ std.name.charAt(0).toUpperCase() }}
+              </div>
+              <strong>{{ std.name }}</strong>
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="age">
+          <th mat-header-cell *matHeaderCellDef>Age</th>
+          <td mat-cell *matCellDef="let std">
+            {{ std.age }} Years
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="course">
+          <th mat-header-cell *matHeaderCellDef>Course</th>
+          <td mat-cell *matCellDef="let std">
+            <span class="course-badge">{{ std.course }}</span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="contact">
+          <th mat-header-cell *matHeaderCellDef>Contact Number</th>
+          <td mat-cell *matCellDef="let std">
+            {{ std.contact }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="no-data" colspan="4">
+            <div class="empty-state">
+              <div class="empty-icon">♙</div>
+              <h3>No Students Yet</h3>
+              <p>Your student records will appear here after registration.</p>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+
+    </div>
+  </div>
+
+  <div class="records-footer">
+    <h2>Organize Better. Achieve More.</h2>
+    <p>TaskMaster — Your student information, beautifully organized.</p>
+  </div>
+
+</section>

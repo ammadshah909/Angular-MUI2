@@ -1,0 +1,110 @@
+
+<section class="add-page">
+
+  <div class="add-hero">
+    <div class="hero-content">
+      <span class="eyebrow">✦ TASKMASTER STUDENT PORTAL</span>
+      <h1>Build Your <span>Future.</span></h1>
+      <p>
+        Add a new student to your institution and keep all your
+        academic records organized in one beautiful place.
+      </p>
+
+      <div class="hero-points">
+        <div>✓ Easy Student Registration</div>
+        <div>✓ Organized Student Records</div>
+        <div>✓ Simple Record Management</div>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC5fpvrtYQ9e12hxXefzzS_xqykvO0IvHeOmsLytiBoA&s=10"
+        alt="University students"
+      />
+      <div class="image-caption">
+        <strong>Start Something Great</strong>
+        <span>Every student has a bright future.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-intro">
+      <span class="section-tag">NEW REGISTRATION</span>
+      <h2>Student Registration</h2>
+      <p>Enter the student's information in the form below.</p>
+    </div>
+
+    <form class="student-form" (ngSubmit)="addStudent()">
+
+      <div class="form-grid">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Student Full Name</mat-label>
+          <input
+            matInput
+            type="text"
+            name="name"
+            [(ngModel)]="student.name"
+            placeholder="Enter full name"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Student Age</mat-label>
+          <input
+            matInput
+            type="number"
+            name="age"
+            [(ngModel)]="student.age"
+            placeholder="Enter age"
+            min="1"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contact Number</mat-label>
+          <input
+            matInput
+            type="tel"
+            name="contact"
+            [(ngModel)]="student.contact"
+            placeholder="Enter contact number"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Course Name</mat-label>
+          <input
+            matInput
+            type="text"
+            name="course"
+            [(ngModel)]="student.course"
+            placeholder="Enter course name"
+            required
+          />
+        </mat-form-field>
+
+      </div>
+
+      <div class="form-actions">
+        <button mat-raised-button type="submit" class="submit-btn">
+          Add Student <span>→</span>
+        </button>
+
+        <span class="form-note">✦ Please complete all fields</span>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="bottom-message">
+    <h2>Every Great Journey Starts With One Step.</h2>
+    <p>Welcome to a smarter way of managing student information.</p>
+  </div>
+
+</section>
